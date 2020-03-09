@@ -1,0 +1,48 @@
+@model DomainTeamWebsite.ViewModels.HomeDetailsViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @{
+        @*Layout = "~/Views/Shared/_Layout.cshtml";*@
+        ViewBag.Title = "Details Page";
+    }
+
+    <h3>@Model.PageTitle</h3>
+    @* @{
+       var employee = ViewData["Employee"] as DomainTeamWebsite.Models.Employee;  
+    } *@
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="class-header">
+                <h1>@Model.employee.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img src="~/images/img1.jpg" alt="" class="card-img-top" asp-asp-append-version="true">
+                <h4>Email: @Model.employee.Email</h4>
+                <h4>Skills: @Model.employee.CoreSkills</h4>
+                <h4>Id: @Model.employee.Id</h4>
+            </div>
+            @{
+                var retstr = @Url.Action("Index","home");
+            }
+            <div class="card-footer text-center">
+                <a href=@retstr class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-primary"> Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    @section scripts{
+        <script src="~/js/customescript.js"></script>
+    }

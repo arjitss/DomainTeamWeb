@@ -1,0 +1,33 @@
+@model IEnumerable<DomainTeamWebsite.Models.Employee>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @{
+        @*Layout = "~/Views/Shared/_Layout.cshtml";*@
+        ViewBag.Title = "Home Page";
+    }
+
+    <div class="card-deck">
+    @foreach(var employee in Model){
+        <div class = "card m-3">
+            <div class="card-header">
+                <td> @employee.Name </td>  
+            </div>
+            <img class = "card-img-top" src="~/images/img1.JPG" asp-append-version = "true" alt="">
+            <div class="card-footer text-center">
+                @{
+                    var str = @Url.Action("DetailsView", "Home", new{id = employee.Id});
+                }
+                <a href=@str class="btn btn-primary">View</a>
+                <a href=@str class="btn btn-primary">Edit</a>
+                <a href=@str class="btn btn-primary"> Delete</a>
+                
+            </div>
+        </div>
+        @* <tr>
+            <td> @employee.Id</td>
+                           
+            <td> @employee.Email </td> 
+            <td> @employee.CoreSkills </td>                    
+        </tr> *@
+    }
+    </div>
+
